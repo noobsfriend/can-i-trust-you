@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::match(['get'], '/', [\App\Http\Controllers\Controller::class, 'form']);
+Route::match(['post'], '/', [\App\Http\Controllers\Controller::class, 'check']);
