@@ -2,7 +2,7 @@
 
 namespace App\Criteria;
 
-class HasImpress implements Criterion
+class IsWellEstablished implements Criterion
 {
 	public function process(string $data): bool
 	{

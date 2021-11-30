@@ -20,6 +20,7 @@ class WebsiteTrustManager
 	{
 		$data = $this->getWebsiteData($url);
 		$ranking = 0.0;
+		$result = [];
 
 		foreach ($this->criteria as $criterion) {
 			if (!$criterion instanceof Criterion) {
@@ -29,9 +30,12 @@ class WebsiteTrustManager
 			$processed = $criterion->process($data['body']);
 
 			$ranking = $processed ? -.1 : +.1;
+			$class = get_class($criterion);
+
+			$result[] = compact('class', 'processed');
 		}
 
-		return compact('ranking');
+		return compact('result', 'ranking');
 	}
 
 	private function getWebsiteData(string $url): array

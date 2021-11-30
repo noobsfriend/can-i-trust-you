@@ -3,7 +3,10 @@
 return [
 
 	'classes' => [
-		\App\Criteria\HasImpress::class,
+		[
+			'class' => \App\Criteria\HasImpress::class,
+			''
+		]
 	]
 
 ];
